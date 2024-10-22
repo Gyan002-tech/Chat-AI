@@ -27,4 +27,5 @@ pip install faiss-cpu
 * Install PyTorch (CPU version)
 pip install torch
 
-* one might also need install libraries like nltk, spacy, re for pre-processing
+* one might also need to install the following libraries  nltk, spacy, re for pre-processing (required if your using this model for new dataset)
+* sentence transformers library for databasing (required if your using this model for new dataset)
