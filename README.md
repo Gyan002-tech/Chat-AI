@@ -1,5 +1,5 @@
 THIS README IS ABOUT INFORMING HOW TO RUN THE MODEL:
-1.To run the program you have to download all the files // Or clone the repository with your local machine
+*To run the program you have to download all the files // Or clone the repository with your local machine
 2.Open the index.html file through any one of your browser
 3.Next run the model.py code on the local machine ( using: VScode, pycharm etc)
 4.You can start asking your queris on the web page or the user interhface once the model.py outout says "INFO APPLICATION STARTUP COMPLETE"\
