@@ -1,10 +1,11 @@
 HOW TO RUN THE MODEL:
 
 - Clone the repository
-- Run the command below and log into your hugging face account
+- Run the command below and log into hugging face account with your access_token
   huggingface-cli login
-- Run the model.py code on the local machine
-- On running the above code. Output = "INFO APPLICATION STARTUP COMPLETE"
+- Run the command below
+  python3 model.py
+- If Output on running above code is "INFO APPLICATION STARTUP COMPLETE"
 - Open the index.html file by double clicking
 - Start Asking questions on web interface.
 
