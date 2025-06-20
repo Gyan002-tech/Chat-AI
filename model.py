@@ -5,6 +5,7 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 from transformers import pipeline, BartTokenizer
 import torch
+from fastapi.responses import JSONResponse
 
 app = FastAPI()
 
@@ -31,7 +32,7 @@ generator = pipeline("text2text-generation", model="facebook/bart-large", device
 print("Loading FAISS index")
 new_db = FAISS.load_local("faiss_index", embedding, allow_dangerous_deserialization=True)
 
-# Define a Pydantic model for the incoming request
+# Define the expected request format
 class QueryModel(BaseModel):
     question: str
 
@@ -50,6 +51,7 @@ def get_bart_response(context):
     else:
         return generated_text
 
+# Main endpoint
 @app.post("/get-response")
 async def get_response(data: QueryModel):
     question = data.question
@@ -61,6 +63,11 @@ async def get_response(data: QueryModel):
     # Generate a response using Facebook BART
     output = get_bart_response(combined_context)
     return {"response": output}
+
+# Optional: CORS preflight support
+@app.options("/get-response")
+async def options_get_response():
+    return JSONResponse(status_code=200)
 
 if __name__ == '__main__':
     import uvicorn
