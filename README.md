@@ -1,51 +1,72 @@
-HOW TO RUN THE MODEL:
+## How to Run the Model
 
-- Clone the repository
-- Run the command below and log into hugging face account with your access_token
-  - huggingface-cli login
-- Run the command below
-  - python3 model.py
-- If Output on running above code is "INFO APPLICATION STARTUP COMPLETE"
-- Open the index.html file by double clicking
-- Start Asking questions on web interface.
+1. **Clone the repository.**
+2. **Authenticate with Hugging Face:**
 
-Note: "Response might vary depending on the computing power of the local machine or laptop "
+- Run: `huggingface-cli login`
+- Log in using your Hugging Face access token.
 
-MUST INSTALLED LIBRARY REQUIRED FOR THE WORKING OF MODEL
+3. **Start the application:**
 
-- Step 1: Create a requirements.txt
-- Step 2: Paste all these inside the above file
-  fastapi
-  uvicorn[standard]
-  pydantic
-  langchain
-  langchain-community
-  transformers
-  faiss-cpu
-  torch
-  sentence-transformers
-- Step 3: run "pip install -r requirements.txt"
+- Run: `python3 model.py`
+- Wait for the message: `INFO APPLICATION STARTUP COMPLETE`
 
-- Note: To run this on new dataset add the following to requirements.txt
-  - nltk
-  - spacy
-  - re
-  - sentence transformers
-    <!-- Last library helps in database creation.-->
-    <!-- Initial 3 for pre-processing-->
+4. **Open the web interface:**
 
-Some future modifications that we have in mind:
+- Double-click `index.html`.
+- Begin asking questions via the web interface.
 
-1. As the number of questions in the database increases, searching for answers may become slower. To address this, we can add metadata to the input files before preprocessing documents and use these metadata fields for faster database searches.
+> **Note:** Response times may vary depending on your machine's computing power.
 
-   - **Metadata fields:**
-     - Author/Source
-     - Keywords
-     - Last Updated
-     - Category
-     - Confidence Score (based on upvotes)
-     - num_word (number of words in the question)
+---
 
-2. Consider suggesting 2-3 follow-up questions after user asks a query. This can be achieved by searching for 3 most relevant questions and giving the answer of the first question as the output along with second and third most relevant questions.
+## Required Libraries
 
-3. Implement a spell checker
+1. **Create a `requirements.txt` file.**
+2. **Add the following dependencies:**
+
+```
+fastapi
+uvicorn[standard]
+pydantic
+langchain
+langchain-community
+transformers
+faiss-cpu
+torch
+sentence-transformers
+```
+
+3. **Install dependencies:**
+
+- Run: `pip install -r requirements.txt`
+
+**For new datasets, also add:**
+
+- `nltk`
+- `spacy`
+- `re`
+- `sentence-transformers`
+  <!-- Last library helps in database creation.-->
+  <!-- Initial 3 for pre-processing-->
+
+---
+
+## Planned Improvements
+
+1. **Faster Search with Metadata:**  
+   As the database grows, searching may slow down. To improve speed, add metadata to input files before preprocessing and use these fields for efficient searches.
+
+- **Suggested metadata fields:**
+  - Author/Source
+  - Keywords
+  - Last Updated
+  - Category
+  - Confidence Score (based on upvotes)
+  - Number of words in the question
+
+2. **Follow-up Question Suggestions:**  
+   After a user query, suggest 2–3 related questions. Return the answer to the most relevant question, and display the next two most relevant questions as suggestions.
+
+3. **Spell Checker:**  
+   Implement a spell checker to improve user input quality.
