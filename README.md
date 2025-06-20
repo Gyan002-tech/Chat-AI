@@ -4,7 +4,7 @@ HOW TO RUN THE MODEL:
 - Run the command below and log into hugging face account with your access_token
   - huggingface-cli login
 - Run the command below
-  python3 model.py
+  - python3 model.py
 - If Output on running above code is "INFO APPLICATION STARTUP COMPLETE"
 - Open the index.html file by double clicking
 - Start Asking questions on web interface.
