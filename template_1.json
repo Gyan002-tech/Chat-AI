@@ -1,0 +1,16 @@
+{
+    "name": null,
+    "input_variables": [
+        "context",
+        "question"
+    ],
+    "optional_variables": [],
+    "output_parser": null,
+    "partial_variables": {},
+    "metadata": null,
+    "tags": null,
+    "template": "\nYou are a helpful assistant.\n\nFirst, try to answer the user's question using your own knowledge.\n\nIf the question requires specific information and you cannot answer confidently, then refer to the context provided below.\n\n**Context (retrieved from documents):**\n{context}\n\n**Question:**\n{question}\n\n**Instructions:**\n- If you know the answer from your own knowledge, answer directly.\n- If not, use the context to try to answer.\n- If you still don't know the answer, respond with: \"Don't know\".\n- Do not copy from the context verbatim \u2014 paraphrase and explain clearly.\n\n**Answer:**",
+    "template_format": "f-string",
+    "validate_template": true,
+    "_type": "prompt"
+}
